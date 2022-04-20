@@ -9,6 +9,7 @@ import java.awt.geom.RoundRectangle2D;
 public class DiceMagic{
     JFrame mainWindow;
     Image appIcon = Toolkit.getDefaultToolkit().getImage("img/dice-magic-logo.png");
+    Audio audioClips = new Audio();
     DiceMagic(){
         mainWindow = new JFrame("Dice Magic");
 
@@ -67,6 +68,7 @@ public class DiceMagic{
         minimizeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                audioClips.playAudioClip("audio/pops.wav");
                 mainWindow.setState(Frame.ICONIFIED);
             }
         });
@@ -74,6 +76,7 @@ public class DiceMagic{
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                audioClips.playAudioClip("audio/pops.wav");
                 if (JOptionPane.showConfirmDialog(mainWindow,
                         "Are you sure you want to close this application?",
                         "Closing Dice Magic?",
@@ -90,6 +93,7 @@ public class DiceMagic{
         onePlayerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                audioClips.playAudioClip("audio/pops.wav");
                 mainWindow.setVisible(false);
                 startOnePlayer();
             }
@@ -98,6 +102,7 @@ public class DiceMagic{
         twoPlayerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                audioClips.playAudioClip("audio/pops.wav");
                 mainWindow.setVisible(false);
                 startTwoPlayer();
             }
@@ -124,6 +129,7 @@ public class DiceMagic{
 
     public void startOnePlayer(){
         JFrame onePlayerWindow = new JFrame("Dice Magic - 1 Player");
+
         JButton homeButton = new JButton(new ImageIcon("img/home.png"));
         homeButton.setBounds(450,10,32,32);
         homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -131,12 +137,15 @@ public class DiceMagic{
         homeButton.setContentAreaFilled(false);
         homeButton.setFocusPainted(false);
         homeButton.setOpaque(false);
+
         JButton rollDice1 = new JButton("Roll Dice 1");
         rollDice1.setBounds(120,150,100,40);
         rollDice1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         JButton rollDice2 = new JButton("Roll Dice 2");
         rollDice2.setBounds(240,150,100,40);
         rollDice2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         onePlayerWindow.add(homeButton);
         onePlayerWindow.add(rollDice1);
         onePlayerWindow.add(rollDice2);
