@@ -10,9 +10,9 @@ import java.util.Map;
 public class Audio {
     Map<String, Clip> clips = new HashMap<>();
     public Audio(){
-        loadAudioClip("audio/bell.wav");
-        loadAudioClip("audio/pops.wav");
-        loadAudioClip("audio/rolling-dice.wav");
+        loadAudioClip("./audio/bell.wav");
+        loadAudioClip("./audio/pops.wav");
+        loadAudioClip("./audio/rolling-dice.wav");
     }
 
     public void loadAudioClip(String soundName){
@@ -30,8 +30,12 @@ public class Audio {
     }
 
     public void playAudioClip(String soundName){
-        Clip c = clips.get(soundName);
-        c.setFramePosition(0);
-        c.start();
+        try {
+            Clip c = clips.get(soundName);
+            c.setFramePosition(0);
+            c.start();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
