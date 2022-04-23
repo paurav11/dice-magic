@@ -3,15 +3,16 @@ package com.dice.dicemagic;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
+import java.util.Objects;
 
 public class DiceMagic{
     JFrame mainWindow;
-    Image appIcon = Toolkit.getDefaultToolkit().getImage("./img/dice-magic-logo.png");
+    Image appIcon = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/resources/img/dice-magic-logo.png"));
     Audio audioClips = new Audio();
     DiceMagic(){
         mainWindow = new JFrame("Dice Magic");
 
-        JButton minimizeButton = new JButton(new ImageIcon("./img/minimize.png"));
+        JButton minimizeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources/img/minimize.png"))));
         minimizeButton.setBounds(440,20,20,20);
         minimizeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         minimizeButton.setBorderPainted(false);
@@ -19,7 +20,8 @@ public class DiceMagic{
         minimizeButton.setFocusPainted(false);
         minimizeButton.setOpaque(false);
 
-        JButton closeButton = new JButton(new ImageIcon("./img/close.png"));
+        JButton closeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                "/resources/img/close.png"))));
         closeButton.setBounds(470,20,20,20);
         closeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         closeButton.setBorderPainted(false);
@@ -32,15 +34,18 @@ public class DiceMagic{
         playMessage.setFont(new Font(playMessage.getFont().getName(), Font.BOLD, 24));
         playMessage.setForeground(new Color(45, 131, 148));
 
-        ImageIcon diceTitleImage = new ImageIcon("./img/dice-title.png");
+        ImageIcon diceTitleImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources/img" +
+                "/dice-title.png")));
         JLabel diceTitle = new JLabel();
         diceTitle.setBounds(100,90,131,98);
         diceTitle.setIcon(diceTitleImage);
-        ImageIcon diceImage = new ImageIcon("./img/dice.gif");
+        ImageIcon diceImage =
+                new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources/img/dice.gif")));
         JLabel diceAnimation = new JLabel();
         diceAnimation.setBounds(215,140,72,72);
         diceAnimation.setIcon(diceImage);
-        ImageIcon magicTitleImage = new ImageIcon("./img/magic-title.png");
+        ImageIcon magicTitleImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources/img" +
+                "/magic-title.png")));
         JLabel magicTitle = new JLabel();
         magicTitle.setBounds(277,175,156,98);
         magicTitle.setIcon(magicTitleImage);
@@ -64,18 +69,18 @@ public class DiceMagic{
         mainWindow.addMouseMotionListener(drag);
 
         minimizeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             mainWindow.setState(Frame.ICONIFIED);
         });
 
         closeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             if (JOptionPane.showConfirmDialog(mainWindow,
                     "Are you sure you want to close this application?",
                     "Closing Dice Magic?",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
-                    new ImageIcon("./img/cross.png")) == JOptionPane.YES_OPTION) {
+                    new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources/img/cross.png")))) == JOptionPane.YES_OPTION) {
                 System.exit(0);
             } else {
                 mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -83,13 +88,13 @@ public class DiceMagic{
         });
 
         onePlayerButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             mainWindow.setVisible(false);
             startOnePlayer();
         });
 
         twoPlayerButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             mainWindow.setVisible(false);
             startTwoPlayer();
         });
@@ -117,7 +122,8 @@ public class DiceMagic{
     public void startOnePlayer(){
         JFrame onePlayerWindow = new JFrame("Dice Magic - 1 Player");
 
-        JButton minimizeButton = new JButton(new ImageIcon("./img/minimize.png"));
+        JButton minimizeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                "/resources/img/minimize.png"))));
         minimizeButton.setBounds(470,20,20,20);
         minimizeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         minimizeButton.setBorderPainted(false);
@@ -125,7 +131,8 @@ public class DiceMagic{
         minimizeButton.setFocusPainted(false);
         minimizeButton.setOpaque(false);
 
-        JButton homeButton = new JButton(new ImageIcon("./img/home.png"));
+        JButton homeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/home.png"))));
         homeButton.setBounds(470,20,20,20);
         homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         homeButton.setBorderPainted(false);
@@ -134,12 +141,14 @@ public class DiceMagic{
         homeButton.setOpaque(false);
         homeButton.setVisible(false);
 
-        ImageIcon diceMagicImage = new ImageIcon("./img/dice-magic-title.png");
+        ImageIcon diceMagicImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-magic-title.png")));
         JLabel diceMagicTitle = new JLabel();
         diceMagicTitle.setBounds(175,40,187,48);
         diceMagicTitle.setIcon(diceMagicImage);
 
-        ImageIcon stickManTitleImage = new ImageIcon("./img/stick-man-title-1.png");
+        ImageIcon stickManTitleImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/stick-man-title-1.png")));
         JLabel stickManTitle = new JLabel();
         stickManTitle.setBounds(220,90,101,32);
         stickManTitle.setIcon(stickManTitleImage);
@@ -201,7 +210,8 @@ public class DiceMagic{
         winCounterValue.setForeground(new Color(45, 131, 148));
         winCounterValue.setVisible(false);
 
-        JButton rollDice = new JButton(new ImageIcon("./img/roll-dice.png"));
+        JButton rollDice = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/roll-dice.png"))));
         rollDice.setBounds(55,270,48,48);
         rollDice.setCursor(new Cursor(Cursor.HAND_CURSOR));
         rollDice.setBorderPainted(false);
@@ -210,7 +220,8 @@ public class DiceMagic{
         rollDice.setOpaque(false);
         rollDice.setVisible(false);
 
-        ImageIcon dice1Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice1Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice1 = new JLabel();
         dice1.setBounds(175,270,48,48);
         dice1.setIcon(dice1Image);
@@ -222,7 +233,8 @@ public class DiceMagic{
         plus.setForeground(new Color(45, 131, 148));
         plus.setVisible(false);
 
-        ImageIcon dice2Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice2Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice2 = new JLabel();
         dice2.setBounds(300,270,48,48);
         dice2.setIcon(dice2Image);
@@ -282,7 +294,7 @@ public class DiceMagic{
 
         startButton.addActionListener(e -> {
             chancesLeft = 3;
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             readyLabel.setVisible(false);
             startButton.setVisible(false);
             backButton.setVisible(false);
@@ -318,36 +330,48 @@ public class DiceMagic{
             chancesLeft--;
             if (chancesLeft >= 0){
                 remainingChancesValue.setText("0" + chancesLeft);
-                audioClips.playAudioClip("./audio/rolling-dice.wav");
+                audioClips.playAudioClip("/resources/audio/rolling-dice.wav");
                 dice1Number = generateRandomNumber("rollDice");
                 dice2Number = generateRandomNumber(("rollDice"));
                 switch (dice1Number){
-                    case 1: dice1.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice1.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice1.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice1.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice1.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice1.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
                 switch (dice2Number){
-                    case 1: dice2.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice2.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice2.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice2.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice2.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice2.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
@@ -361,7 +385,7 @@ public class DiceMagic{
                 if (diceTotal == randomChallengeNumber){
                     wins++;
                     winCounterValue.setText("0" + wins);
-                    audioClips.playAudioClip("./audio/bell.wav");
+                    audioClips.playAudioClip("/resources/audio/bell.wav");
                 }
 
                 if (chancesLeft == 0){
@@ -373,13 +397,13 @@ public class DiceMagic{
         });
 
         backButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             mainWindow.setVisible(true);
             onePlayerWindow.dispose();
         });
 
         newChallengeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             newChallengeButton.setVisible(false);
             restartButton.setBounds(195,400,140,40);
 
@@ -393,8 +417,10 @@ public class DiceMagic{
             if (!rollDice.isEnabled()){
                 rollDice.setEnabled(true);
             }
-            dice1.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice2.setIcon(new ImageIcon("./img/dice-small.gif"));
+            dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
             dice1Number = 0;
             dice2Number = 0;
             diceTotal = 0;
@@ -402,7 +428,7 @@ public class DiceMagic{
         });
 
         restartButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             newChallengeButton.setVisible(false);
             restartButton.setBounds(195,400,140,40);
 
@@ -418,8 +444,10 @@ public class DiceMagic{
             if (!rollDice.isEnabled()){
                 rollDice.setEnabled(true);
             }
-            dice1.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice2.setIcon(new ImageIcon("./img/dice-small.gif"));
+            dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
             dice1Number = 0;
             dice2Number = 0;
             diceTotal = 0;
@@ -431,17 +459,18 @@ public class DiceMagic{
         onePlayerWindow.addMouseMotionListener(drag);
 
         minimizeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             onePlayerWindow.setState(Frame.ICONIFIED);
         });
 
         homeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             if (JOptionPane.showConfirmDialog(onePlayerWindow,
                     "All your current progress will be lost.",
                     "Back to Home",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
-                    new ImageIcon("./img/bin.png")) == JOptionPane.YES_OPTION){
+                    new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                            "/img/bin.png")))) == JOptionPane.YES_OPTION){
                 chancesLeft = 0;
                 randomChallengeNumber = 0;
                 dice1Number = 0;
@@ -494,7 +523,8 @@ public class DiceMagic{
     public void startTwoPlayer(){
         JFrame twoPlayerWindow = new JFrame("Dice Magic - 2 Player");
 
-        JButton minimizeButton = new JButton(new ImageIcon("./img/minimize.png"));
+        JButton minimizeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                "/resources/img/minimize.png"))));
         minimizeButton.setBounds(470,20,20,20);
         minimizeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         minimizeButton.setBorderPainted(false);
@@ -502,7 +532,8 @@ public class DiceMagic{
         minimizeButton.setFocusPainted(false);
         minimizeButton.setOpaque(false);
 
-        JButton homeButton = new JButton(new ImageIcon("./img/home.png"));
+        JButton homeButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/home.png"))));
         homeButton.setBounds(470,20,20,20);
         homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         homeButton.setBorderPainted(false);
@@ -511,12 +542,14 @@ public class DiceMagic{
         homeButton.setOpaque(false);
         homeButton.setVisible(false);
 
-        ImageIcon diceMagicImage = new ImageIcon("./img/dice-magic-title.png");
+        ImageIcon diceMagicImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-magic-title.png")));
         JLabel diceMagicTitle = new JLabel();
         diceMagicTitle.setBounds(175,40,187,48);
         diceMagicTitle.setIcon(diceMagicImage);
 
-        ImageIcon stickManTitleImage = new ImageIcon("./img/stick-man-title-2.png");
+        ImageIcon stickManTitleImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/stick-man-title-2.png")));
         JLabel stickManTitle = new JLabel();
         stickManTitle.setBounds(215,90,116,32);
         stickManTitle.setIcon(stickManTitleImage);
@@ -596,7 +629,8 @@ public class DiceMagic{
         player1Label.setForeground(Color.GRAY);
         player1Label.setVisible(false);
 
-        JButton rollDice1 = new JButton(new ImageIcon("./img/roll-dice.png"));
+        JButton rollDice1 = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/roll-dice.png"))));
         rollDice1.setBounds(55,300,48,48);
         rollDice1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         rollDice1.setBorderPainted(false);
@@ -605,7 +639,8 @@ public class DiceMagic{
         rollDice1.setOpaque(false);
         rollDice1.setVisible(false);
 
-        ImageIcon dice1Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice1Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice1 = new JLabel();
         dice1.setBounds(175,300,48,48);
         dice1.setIcon(dice1Image);
@@ -617,7 +652,8 @@ public class DiceMagic{
         plus1.setForeground(new Color(45, 131, 148));
         plus1.setVisible(false);
 
-        ImageIcon dice2Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice2Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice2 = new JLabel();
         dice2.setBounds(300,300,48,48);
         dice2.setIcon(dice2Image);
@@ -665,7 +701,8 @@ public class DiceMagic{
         player2Label.setForeground(Color.GRAY);
         player2Label.setVisible(false);
 
-        JButton rollDice2 = new JButton(new ImageIcon("./img/roll-dice.png"));
+        JButton rollDice2 = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/roll-dice.png"))));
         rollDice2.setBounds(55,460,48,48);
         rollDice2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         rollDice2.setBorderPainted(false);
@@ -674,7 +711,8 @@ public class DiceMagic{
         rollDice2.setOpaque(false);
         rollDice2.setVisible(false);
 
-        ImageIcon dice3Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice3Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice3 = new JLabel();
         dice3.setBounds(175,460,48,48);
         dice3.setIcon(dice3Image);
@@ -686,7 +724,8 @@ public class DiceMagic{
         plus2.setForeground(new Color(45, 131, 148));
         plus2.setVisible(false);
 
-        ImageIcon dice4Image = new ImageIcon("./img/dice-small.gif");
+        ImageIcon dice4Image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                "/img/dice-small.gif")));
         JLabel dice4 = new JLabel();
         dice4.setBounds(300,460,48,48);
         dice4.setIcon(dice4Image);
@@ -746,7 +785,7 @@ public class DiceMagic{
 
         startButton.addActionListener(e -> {
             chancesLeft = 3;
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             readyLabel.setVisible(false);
             startButton.setVisible(false);
             backButton.setVisible(false);
@@ -798,7 +837,7 @@ public class DiceMagic{
         });
 
         backButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             mainWindow.setVisible(true);
             twoPlayerWindow.dispose();
         });
@@ -807,36 +846,48 @@ public class DiceMagic{
             chancesLeft--;
             if (chancesLeft >= 0){
                 remainingChancesValue.setText("0" + chancesLeft);
-                audioClips.playAudioClip("./audio/rolling-dice.wav");
+                audioClips.playAudioClip("/resources/audio/rolling-dice.wav");
                 dice1Number = generateRandomNumber("rollDice");
                 dice2Number = generateRandomNumber(("rollDice"));
                 switch (dice1Number){
-                    case 1: dice1.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice1.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice1.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice1.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice1.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice1.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
                 switch (dice2Number){
-                    case 1: dice2.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice2.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice2.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice2.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice2.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice2.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
@@ -851,7 +902,7 @@ public class DiceMagic{
                     p1Wins++;
                     win1++;
                     winCounter1Value.setText("0" + p1Wins);
-                    audioClips.playAudioClip("./audio/bell.wav");
+                    audioClips.playAudioClip("/resources/audio/bell.wav");
                 }
 
                 if (chancesLeft == 0){
@@ -870,36 +921,48 @@ public class DiceMagic{
             chancesLeft--;
             if (chancesLeft >= 0){
                 remainingChancesValue.setText("0" + chancesLeft);
-                audioClips.playAudioClip("./audio/rolling-dice.wav");
+                audioClips.playAudioClip("/resources/audio/rolling-dice.wav");
                 dice1Number = generateRandomNumber("rollDice");
                 dice2Number = generateRandomNumber(("rollDice"));
                 switch (dice1Number){
-                    case 1: dice3.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice3.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice3.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice3.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice3.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice3.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
                 switch (dice2Number){
-                    case 1: dice4.setIcon(new ImageIcon("./img/ds1.png"));
+                    case 1: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds1.png"))));
                         break;
-                    case 2: dice4.setIcon(new ImageIcon("./img/ds2.png"));
+                    case 2: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds2.png"))));
                         break;
-                    case 3: dice4.setIcon(new ImageIcon("./img/ds3.png"));
+                    case 3: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds3.png"))));
                         break;
-                    case 4: dice4.setIcon(new ImageIcon("./img/ds4.png"));
+                    case 4: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds4.png"))));
                         break;
-                    case 5: dice4.setIcon(new ImageIcon("./img/ds5.png"));
+                    case 5: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds5.png"))));
                         break;
-                    case 6: dice4.setIcon(new ImageIcon("./img/ds6.png"));
+                    case 6: dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource(
+                            "/resources/img/ds6.png"))));
                         break;
                     default: break;
                 }
@@ -914,7 +977,7 @@ public class DiceMagic{
                     p2Wins++;
                     win2++;
                     winCounter2Value.setText("0" + p2Wins);
-                    audioClips.playAudioClip("./audio/bell.wav");
+                    audioClips.playAudioClip("/resources/audio/bell.wav");
                 }
 
                 if (chancesLeft == 0){
@@ -924,19 +987,22 @@ public class DiceMagic{
                                 "Player 1 wins!",
                                 "Result for this challenge",
                                 JOptionPane.INFORMATION_MESSAGE,
-                                new ImageIcon("./img/trophy.png"));
+                                new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                                        "/img/trophy.png"))));
                     } else if (win2 > win1) {
                         JOptionPane.showMessageDialog(twoPlayerWindow,
                                 "Player 2 wins!",
                                 "Result for this challenge",
                                 JOptionPane.INFORMATION_MESSAGE,
-                                new ImageIcon("./img/trophy.png"));
+                                new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                                        "/img/trophy.png"))));
                     } else if (win1 == win2) {
                         JOptionPane.showMessageDialog(twoPlayerWindow,
                                 "It's a tie!",
                                 "Result for this challenge",
                                 JOptionPane.INFORMATION_MESSAGE,
-                                new ImageIcon("./img/handshake.png"));
+                                new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                                        "/img/handshake.png"))));
                     }
                     restartButton.setBounds(275,590,140,40);
                     newChallengeButton.setVisible(true);
@@ -947,7 +1013,7 @@ public class DiceMagic{
         });
 
         newChallengeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             newChallengeButton.setVisible(false);
             restartButton.setBounds(190,590,140,40);
             JOptionPane.showMessageDialog(twoPlayerWindow,"Player 1's turn!");
@@ -964,10 +1030,14 @@ public class DiceMagic{
             if (!rollDice1.isEnabled()){
                 rollDice1.setEnabled(true);
             }
-            dice1.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice2.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice3.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice4.setIcon(new ImageIcon("./img/dice-small.gif"));
+            dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
             dice1Number = 0;
             dice2Number = 0;
             diceTotal = 0;
@@ -976,7 +1046,7 @@ public class DiceMagic{
         });
 
         restartButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             newChallengeButton.setVisible(false);
             restartButton.setBounds(190,590,140,40);
             JOptionPane.showMessageDialog(twoPlayerWindow,"Player 1's turn!");
@@ -999,10 +1069,14 @@ public class DiceMagic{
                 rollDice1.setEnabled(true);
                 rollDice2.setEnabled(false);
             }
-            dice1.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice2.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice3.setIcon(new ImageIcon("./img/dice-small.gif"));
-            dice4.setIcon(new ImageIcon("./img/dice-small.gif"));
+            dice1.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice2.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice3.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
+            dice4.setIcon(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                    "/img/dice-small.gif"))));
             dice1Number = 0;
             dice2Number = 0;
             diceTotal = 0;
@@ -1015,18 +1089,19 @@ public class DiceMagic{
         twoPlayerWindow.addMouseMotionListener(drag);
 
         minimizeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             twoPlayerWindow.setState(Frame.ICONIFIED);
         });
 
         homeButton.addActionListener(e -> {
-            audioClips.playAudioClip("./audio/pops.wav");
+            audioClips.playAudioClip("/resources/audio/pops.wav");
             if (JOptionPane.showConfirmDialog(twoPlayerWindow,
                     "All your current progress will be lost.",
                     "Back to Home",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
-                    new ImageIcon("./img/bin.png")) == JOptionPane.YES_OPTION){
+                    new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/resources" +
+                            "/img/bin.png")))) == JOptionPane.YES_OPTION){
                 chancesLeft = 0;
                 randomChallengeNumber = 0;
                 dice1Number = 0;

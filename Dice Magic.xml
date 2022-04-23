@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>D:\Java Projects\Dice-Magic\img\dice-magic-logo.ico</icon>
+  <icon>D:\Java Projects\Dice-Magic\src\resources\img\dice-magic-logo.ico</icon>
   <jre>
     <path></path>
     <bundledJre64Bit>false</bundledJre64Bit>
