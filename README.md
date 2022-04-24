@@ -1,7 +1,12 @@
 <p align="center"><img src="https://raw.githubusercontent.com/paurav11/dice-magic/main/src/resources/img/dice-magic-title.png"/></p>
 <p align="center"><img src="https://raw.githubusercontent.com/paurav11/dice-magic/main/src/resources/img/dice.gif"/></p>
 
-- Dice Magic is a simple dice-rolling fun game designed to try your luck with a random challenge generated everytime. This game is completely free time utility. It will never let you get bored in your free time. Do give it a try!
+
+<p align="center"><a href="https://sourceforge.net/projects/dice-magic/files/latest/download"><img alt="Download Dice Magic" src="https://img.shields.io/sourceforge/dt/dice-magic.svg" ></a></p>
+<p align="center"><a href="https://sourceforge.net/p/dice-magic/"><img alt="Download Dice Magic" src="https://sourceforge.net/sflogo.php?type=18&group_id=3508802" width=200></a></p>
+<p align="center"><a href="https://sourceforge.net/projects/dice-magic/files/latest/download"><img alt="Download Dice Magic" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></p>
+
+- Dice Magic is a simple dice-rolling fun game designed to try your luck with a random challenge generated every time. This game is completely free time utility. It will never let you get bored in your free time. Do give it a try!
 
 <p align="center"><img src="https://user-images.githubusercontent.com/44253834/164912537-979bbd3b-519e-4ad9-963b-bc44ed425b2b.jpg"/></p>
 
@@ -39,4 +44,4 @@ System Requirements
 Note: Running this application on any OS without installing the JRE will throw below error.
 <p align="center"><img src="https://user-images.githubusercontent.com/44253834/164915416-17632a04-79b8-47af-9ac4-cc3ad0b8cf84.png"/></p>
 
-<p align="center"><a href="https://github.com/paurav11/dice-magic/blob/main/Dice%20Magic.exe?raw=true">Dice Magic.exe</a> & <a href="https://github.com/paurav11/dice-magic/blob/main/out/artifacts/Dice_Magic_jar/Dice-Magic.jar?raw=true">Dice-Magic.jar</a> is completely free and available publicly. Download now!</p>
+<p align="center"><a href="https://github.com/paurav11/dice-magic/blob/main/Dice%20Magic.exe?raw=true">Dice-Magic.exe</a> & <a href="https://github.com/paurav11/dice-magic/blob/main/out/artifacts/Dice_Magic_jar/Dice-Magic.jar?raw=true">Dice-Magic.jar</a> is completely free and available publicly. Download now!</p>
