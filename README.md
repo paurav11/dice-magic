@@ -3,7 +3,7 @@
 
 
 <p align="center"><a href="https://sourceforge.net/projects/dice-magic/files/latest/download"><img alt="Download Dice Magic" src="https://img.shields.io/sourceforge/dt/dice-magic.svg" ></a></p>
-<p align="center"><a href="https://sourceforge.net/p/dice-magic/"><img alt="Download Dice Magic" src="https://sourceforge.net/sflogo.php?type=18&group_id=3508802" width=200></a></p>
+<p align="center"><a href="https://sourceforge.net/p/dice-magic/"><img alt="Download Dice Magic" src="https://sourceforge.net/sflogo.php?type=17&group_id=3508802" width=200></a></p>
 <p align="center"><a href="https://sourceforge.net/projects/dice-magic/files/latest/download"><img alt="Download Dice Magic" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></p>
 
 - Dice Magic is a simple dice-rolling fun game designed to try your luck with a random challenge generated every time. This game is completely free time utility. It will never let you get bored in your free time. Do give it a try!
